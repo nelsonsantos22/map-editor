@@ -9,6 +9,7 @@ public class Grid {
     
     private int cols;
     private int rows;
+    private Cell[][] cell;
 
     public Grid(int cols, int rows){
         this.cols = cols;
@@ -19,7 +20,7 @@ public class Grid {
     public void createGrid(){
 
 
-        Cell[][] cell = new Cell[cols][rows];
+        cell = new Cell[cols][rows];
         
         for (int row = 0; row < rows ; row++) {
             for (int col = 0; col < cols ; col++) {
@@ -36,5 +37,10 @@ public class Grid {
 
     public int getRows() {
         return rows;
+    }
+
+    //will return one cell in a specific location on the grid
+    public Cell getCell(int col, int row){
+        return cell[col][row];
     }
 }

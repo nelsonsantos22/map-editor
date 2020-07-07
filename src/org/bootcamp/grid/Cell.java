@@ -1,6 +1,7 @@
 package org.bootcamp.grid;
 
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 import static org.bootcamp.Grid.PADDING;
@@ -12,6 +13,7 @@ public class Cell {
     private int cols;
     private int rows;
     private Rectangle cell;
+    private boolean painted;
 
     public Cell(int cols, int rows) {
         this.cols = cols;
@@ -39,4 +41,23 @@ public class Cell {
     public void setRows(int rows) {
         this.rows = rows;
     }
+
+    public boolean isPainted() {
+        return painted;
+    }
+
+    public void setPainted(boolean painted) {
+        this.painted = painted;
+    }
+
+    public void paint(){
+        cell.fill();
+        setPainted(true);
+    }
+
+    public void erase(){
+        cell.draw();
+        setPainted(false);
+    }
+
 }

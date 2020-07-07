@@ -1,16 +1,14 @@
 package org.bootcamp;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.bootcamp.grid.Cell;
 import org.bootcamp.grid.Cursor;
 
 
 public class MapEditor {
 
-
-    private Cell cell;
     private Grid grid;
     private Cursor cursor;
-
 
     public MapEditor(int cols, int rows){
         this.grid = new Grid(cols,rows);
@@ -42,15 +40,24 @@ public class MapEditor {
     }
 
     public boolean cursorOnEdge(Cursor.DirectionType directionType){
-
         if (directionType == Cursor.DirectionType.UP && cursor.getRows() == 0 ||
-            directionType == Cursor.DirectionType.DOWN && cursor.getRows() == grid.getRows() * Cell.CELL_SIZE - Cell.CELL_SIZE||
+            directionType == Cursor.DirectionType.DOWN && cursor.getRows() == grid.getRows() - 1||
             directionType == Cursor.DirectionType.LEFT && cursor.getCols() == 0||
-            directionType == Cursor.DirectionType.RIGHT && cursor.getCols() == grid.getCols() * Cell.CELL_SIZE - Cell.CELL_SIZE){
+            directionType == Cursor.DirectionType.RIGHT && cursor.getCols() == grid.getCols() - 1){
 
             return true;
         }
         return false;
     }
 
+    public void printOrErase(){
+
+        Cell cellState = grid.getCell(cursor.getCols(), cursor.getRows());
+
+        if(!cellState.isPainted()){
+            cellState.paint();
+            return;
+        }
+        cellState.erase();
+    }
 }
