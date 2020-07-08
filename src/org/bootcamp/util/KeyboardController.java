@@ -21,7 +21,7 @@ public class KeyboardController implements KeyboardHandler {
     private void initKeyboard() {
 
         Keyboard keyboard = new Keyboard(this);
-        KeyboardEvent[] events = new KeyboardEvent[5];
+        KeyboardEvent[] events = new KeyboardEvent[6];
 
         for (int i = 0; i < events.length ; i++) {
             events[i] = new KeyboardEvent();
@@ -41,6 +41,9 @@ public class KeyboardController implements KeyboardHandler {
 
         events[4].setKey(KEY_SPACE);
         events[4].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        events[5].setKey(KEY_C);
+        events[5].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
         for (int i = 0; i < events.length; i++) {
             keyboard.addEventListener(events[i]);
@@ -69,6 +72,9 @@ public class KeyboardController implements KeyboardHandler {
                 break;
             case KEY_SPACE:
                 mapEditor.printOrErase();
+                break;
+            case KEY_C:
+                mapEditor.clearAll();
                 break;
         }
 

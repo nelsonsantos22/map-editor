@@ -60,4 +60,15 @@ public class MapEditor {
         }
         cellState.erase();
     }
+
+    public void clearAll(){
+
+        for (int i = 0; i < grid.getRows(); i++) {
+            for (int j = 0; j < grid.getCols(); j++) {
+                if(grid.getCell(j, i).isPainted()){
+                    grid.getCell(j, i).erase();
+                }
+            }
+        }
+    }
 }
