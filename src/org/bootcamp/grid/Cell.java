@@ -51,13 +51,13 @@ public class Cell {
     }
 
     public void paint(){
-        cell.fill();
         setPainted(true);
+        cell.fill();
     }
 
     public void erase(){
-        cell.draw();
         setPainted(false);
+        cell.draw();
     }
 
 }

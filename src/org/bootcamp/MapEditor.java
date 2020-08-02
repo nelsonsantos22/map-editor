@@ -9,6 +9,7 @@ public class MapEditor {
 
     private Grid grid;
     private Cursor cursor;
+    private boolean painting;
 
     public MapEditor(int cols, int rows){
         this.grid = new Grid(cols,rows);
@@ -48,6 +49,14 @@ public class MapEditor {
             return true;
         }
         return false;
+    }
+
+    public boolean isPainting() {
+        return painting;
+    }
+
+    public void setPainting(boolean painting) {
+        this.painting = painting;
     }
 
     public void printOrErase(){

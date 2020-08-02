@@ -71,6 +71,7 @@ public class KeyboardController implements KeyboardHandler {
                 mapEditor.moveCursor(Cursor.DirectionType.RIGHT);
                 break;
             case KEY_SPACE:
+                mapEditor.setPainting(true);
                 mapEditor.printOrErase();
                 break;
             case KEY_C:
@@ -82,6 +83,11 @@ public class KeyboardController implements KeyboardHandler {
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
+
+        switch (keyboardEvent.getKey()){
+            case KEY_SPACE:
+                mapEditor.setPainting(false);
+        }
 
     }
 
